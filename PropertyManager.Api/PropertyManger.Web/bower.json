@@ -1,0 +1,19 @@
+{
+  "name": "PropertyManger.Web",
+  "homepage": "https://github.com/taylorsmith4546/18-PropertyManager",
+  "authors": [
+    "Taylor Smith <taylorsmith4546@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

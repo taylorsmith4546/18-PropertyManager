@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PropertyManager.Api.Models;
 
 namespace PropertyManager.Api.Domain
 {
@@ -20,6 +21,17 @@ namespace PropertyManager.Api.Domain
 
         public virtual ICollection<Lease> Leases { get; set; }
         public virtual ICollection<WorkOrder> WorkOrders { get; set; } //virtual is keyowrd used for entity framework, 'lazy loading'
+
+        public void Update(PropertyModel property)
+        {
+            PropertyName = property.PropertyName;
+            SquareFeet = property.SquareFeet;
+            NumberOfBedrooms = property.NumberOfBedrooms;
+            NumberOfBathrooms = property.NumberOfBathrooms;
+            NumberOfVehicles = property.NumberOfVehicles;
+            HasOutdoorSpace = property.HasOutdoorSpace;
+            Address.Update(property.Address);
+        }
     }
 
 }

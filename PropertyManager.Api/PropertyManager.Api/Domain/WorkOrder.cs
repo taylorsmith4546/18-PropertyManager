@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PropertyManager.Api.Models;
 
 namespace PropertyManager.Api.Domain
 {
@@ -18,7 +19,7 @@ namespace PropertyManager.Api.Domain
         public int WorkOrderId { get; set; }
         public int PropertyId { get; set; }
         public int TenantId { get; set; }
-        public string Descritopn { get; set; }
+        public string Description { get; set; }
 
         public DateTime OpenedDate { get; set; }
         public DateTime ClosedDate { get; set; }
@@ -26,5 +27,13 @@ namespace PropertyManager.Api.Domain
         public virtual Property Property { get; set; }
         public virtual Tenant Tenant { get; set; }
 
+        public void Update(WorkOrderModel workOrder)
+        {
+            PropertyId = workOrder.PropertyId;
+            TenantId = workOrder.TenantId;
+            Description = workOrder.Description;
+            OpenedDate = workOrder.OpenedDate;
+            ClosedDate = workOrder.ClosedDate;
+        }
     }
 }

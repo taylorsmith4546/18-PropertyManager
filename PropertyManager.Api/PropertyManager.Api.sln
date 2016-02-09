@@ -5,6 +5,28 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PropertyManager.Api", "PropertyManager.Api\PropertyManager.Api.csproj", "{BC353491-0F81-4EFB-8371-0042F2A2C49A}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "PropertyManger.Web", "PropertyManger.Web\", "{0CF2CACF-6DE1-4A87-92AD-F34D29079FB3}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_50014"
+		Debug.AspNetCompiler.PhysicalPath = "PropertyManger.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50014\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_50014"
+		Release.AspNetCompiler.PhysicalPath = "PropertyManger.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50014\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "50014"
+		SlnRelativePath = "PropertyManger.Web\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +37,10 @@ Global
 		{BC353491-0F81-4EFB-8371-0042F2A2C49A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC353491-0F81-4EFB-8371-0042F2A2C49A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC353491-0F81-4EFB-8371-0042F2A2C49A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CF2CACF-6DE1-4A87-92AD-F34D29079FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF2CACF-6DE1-4A87-92AD-F34D29079FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CF2CACF-6DE1-4A87-92AD-F34D29079FB3}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CF2CACF-6DE1-4A87-92AD-F34D29079FB3}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

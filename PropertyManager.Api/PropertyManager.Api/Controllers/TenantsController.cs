@@ -10,6 +10,8 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using PropertyManager.Api.Domain;
 using PropertyManager.Api.Infrastructure;
+using PropertyManager.Api.Models;
+using AutoMapper;
 
 namespace PropertyManager.Api.Controllers
 {
@@ -18,27 +20,28 @@ namespace PropertyManager.Api.Controllers
         private PropertyManagerDataContext db = new PropertyManagerDataContext();
 
         // GET: api/Tenants
-        public IQueryable<Tenant> GetTenants()
+        public IEnumerable<TenantModel> GetTenants()
         {
-            return db.Tenants;
+            return Mapper.Map<IEnumerable<TenantModel>>(db.Tenants);
         }
 
         // GET: api/Tenants/5
-        [ResponseType(typeof(Tenant))]
+        [ResponseType(typeof(TenantModel))]
         public IHttpActionResult GetTenant(int id)
         {
             Tenant tenant = db.Tenants.Find(id);
+
             if (tenant == null)
             {
                 return NotFound();
             }
 
-            return Ok(tenant);
+            return Ok(Mapper.Map<TenantModel>(tenant));
         }
 
         // PUT: api/Tenants/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutTenant(int id, Tenant tenant)
+        public IHttpActionResult PutTenant(int id, TenantModel tenant)
         {
             if (!ModelState.IsValid)
             {
@@ -49,6 +52,10 @@ namespace PropertyManager.Api.Controllers
             {
                 return BadRequest();
             }
+
+            var dbTenant = db.Tenants.Find(id);
+
+            dbTenant.Update(tenant);
 
             db.Entry(tenant).State = EntityState.Modified;
 
@@ -72,22 +79,28 @@ namespace PropertyManager.Api.Controllers
         }
 
         // POST: api/Tenants
-        [ResponseType(typeof(Tenant))]
-        public IHttpActionResult PostTenant(Tenant tenant)
+        [ResponseType(typeof(TenantModel))]
+        public IHttpActionResult PostTenant(TenantModel tenant)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Tenants.Add(tenant);
+            var dbTenant = new Tenant();
+
+            dbTenant.Update(tenant);
+
+            db.Tenants.Add(dbTenant);
             db.SaveChanges();
+
+            tenant.TenantId = dbTenant.TenantId;
 
             return CreatedAtRoute("DefaultApi", new { id = tenant.TenantId }, tenant);
         }
 
         // DELETE: api/Tenants/5
-        [ResponseType(typeof(Tenant))]
+        [ResponseType(typeof(TenantModel))]
         public IHttpActionResult DeleteTenant(int id)
         {
             Tenant tenant = db.Tenants.Find(id);
@@ -99,7 +112,7 @@ namespace PropertyManager.Api.Controllers
             db.Tenants.Remove(tenant);
             db.SaveChanges();
 
-            return Ok(tenant);
+            return Ok(Mapper.Map<TenantModel>(tenant));
         }
 
         protected override void Dispose(bool disposing)

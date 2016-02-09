@@ -10,6 +10,8 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using PropertyManager.Api.Domain;
 using PropertyManager.Api.Infrastructure;
+using AutoMapper;
+using PropertyManager.Api.Models;
 
 namespace PropertyManager.Api.Controllers
 {
@@ -18,39 +20,50 @@ namespace PropertyManager.Api.Controllers
         private PropertyManagerDataContext db = new PropertyManagerDataContext();
 
         // GET: api/Addresses
-        public IQueryable<Address> GetAddresses()
+        public IEnumerable<AddressModel> GetAddresses()
         {
-            return db.Addresses;
+            return Mapper.Map<IEnumerable<AddressModel>>(db.Addresses);
         }
 
         // GET: api/Addresses/5
-        [ResponseType(typeof(Address))]
+        [ResponseType(typeof(AddressModel))]
         public IHttpActionResult GetAddress(int id)
         {
             Address address = db.Addresses.Find(id);
+
             if (address == null)
             {
                 return NotFound();
             }
 
-            return Ok(address);
+            return Ok(Mapper.Map<AddressModel>(address));
         }
 
         // PUT: api/Addresses/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAddress(int id, Address address)
+        public IHttpActionResult PutAddress(int id, AddressModel modelAddress)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != address.AddressId)
+            if (id != modelAddress.AddressId)
             {
                 return BadRequest();
             }
 
-            db.Entry(address).State = EntityState.Modified;
+            // to be changed
+            //db.Entry(address).State = EntityState.Modified;
+
+            // 1. Grab the entry from the database
+            var dbAddress = db.Addresses.Find(id);
+
+            // 2. Update the entry fetched from the database
+            dbAddress.Update(modelAddress);
+
+            // 3. Mark entry as modified
+            db.Entry(dbAddress).State = EntityState.Modified;
 
             try
             {
@@ -72,22 +85,28 @@ namespace PropertyManager.Api.Controllers
         }
 
         // POST: api/Addresses
-        [ResponseType(typeof(Address))]
-        public IHttpActionResult PostAddress(Address address)
+        [ResponseType(typeof(AddressModel))]
+        public IHttpActionResult PostAddress(AddressModel address)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Addresses.Add(address);
+            var newAddress = new Address();
+            newAddress.Update(address);
+
+            db.Addresses.Add(newAddress);
+
             db.SaveChanges();
+
+            address.AddressId = newAddress.AddressId;
 
             return CreatedAtRoute("DefaultApi", new { id = address.AddressId }, address);
         }
 
         // DELETE: api/Addresses/5
-        [ResponseType(typeof(Address))]
+        [ResponseType(typeof(AddressModel))]
         public IHttpActionResult DeleteAddress(int id)
         {
             Address address = db.Addresses.Find(id);
@@ -99,7 +118,7 @@ namespace PropertyManager.Api.Controllers
             db.Addresses.Remove(address);
             db.SaveChanges();
 
-            return Ok(address);
+            return Ok(Mapper.Map<AddressModel>(address));
         }
 
         protected override void Dispose(bool disposing)

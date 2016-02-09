@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using PropertyManager.Api.Models;
 
 namespace PropertyManager.Api.Domain
 {
@@ -20,5 +21,14 @@ namespace PropertyManager.Api.Domain
         public virtual ICollection<Lease> Leases { get; set; }
         public virtual ICollection<WorkOrder> WorkOrders { get; set; }
 
+        public void Update(TenantModel tenant)
+        {
+            FirstName = tenant.FirstName;
+            LastName = tenant.LastName;
+            Telephone = tenant.Telephone;
+            EmailAddress = tenant.EmailAddress;
+
+            Address.Update(tenant.Address);
+        }
     }
 }
