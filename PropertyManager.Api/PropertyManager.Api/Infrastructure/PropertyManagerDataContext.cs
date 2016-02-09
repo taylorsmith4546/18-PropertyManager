@@ -3,9 +3,9 @@ using System.Data.Entity;
 
 namespace PropertyManager.Api.Infrastructure
 {
-    public class PropertyManagerDataContext: DbContext
+    public class PropertyManagerDataContext : DbContext
     {
-        public PropertyManagerDataContext() :base("Property Manager")
+        public PropertyManagerDataContext() : base("Property Manager")
         {
         }
 
@@ -28,7 +28,7 @@ namespace PropertyManager.Api.Infrastructure
             .HasMany(a => a.Tenants)
             .WithRequired(t => t.Address)
             .HasForeignKey(t => t.AddressId)
-	        .WillCascadeOnDelete(false);
+            .WillCascadeOnDelete(false);
 
             //Leases
             //There are so many relationships here, so we'll move on
@@ -56,8 +56,6 @@ namespace PropertyManager.Api.Infrastructure
             .HasMany(t => t.WorkOrders)
             .WithRequired(wo => wo.Tenant)
             .HasForeignKey(wo => wo.TenantId);
-
-
         }
     }
 }
