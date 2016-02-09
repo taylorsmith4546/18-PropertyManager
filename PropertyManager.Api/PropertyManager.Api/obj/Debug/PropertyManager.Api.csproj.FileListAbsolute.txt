@@ -50,3 +50,4 @@ C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\roslyn
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\AutoMapper.dll
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\AutoMapper.xml
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.Migrations.AddModels.resources
+C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.Migrations.RefactorControllers.resources

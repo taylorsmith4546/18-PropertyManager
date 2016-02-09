@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PropertyManager.Api.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,11 +10,12 @@ namespace PropertyManager.Api.Domain
     {
         Daily = 1,
         Weekly = 2,
-        Monthy = 3,
+        Monthly = 3,
         Quarterly = 4,
         BiAnnually = 5,
         Annually = 6
     }
+
     public class Lease
     {
         public int LeaseId { get; set; }
@@ -26,5 +28,26 @@ namespace PropertyManager.Api.Domain
 
         public virtual Property Property { get; set; }
         public virtual Tenant Tenant { get; set; }
+
+        public Lease()
+        {
+            
+        }
+
+        public Lease(LeaseModel model)
+        {
+            this.Update(model);
+        }
+
+        public void Update(LeaseModel model)
+        {
+            LeaseId = model.LeaseId;
+            TenantId = model.TenantId;
+            PropertyId = model.PropertyId;
+            StartDate = model.StartDate;
+            EndDate = model.EndDate;
+            RentAmount = model.RentAmount;
+            RentFrequency = model.RentFrequency;
+        }
     }
 }

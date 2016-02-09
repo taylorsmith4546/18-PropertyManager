@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PropertyManager.Api.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -20,6 +21,28 @@ namespace PropertyManager.Api.Domain
 
         public virtual ICollection<Lease> Leases { get; set; }
         public virtual ICollection<WorkOrder> WorkOrders { get; set; } //virtual is keyowrd used for entity framework, 'lazy loading'
+
+        public Property()
+        {
+
+        }
+
+        public Property(PropertyModel model)
+        {
+            this.Update(model);
+        }
+
+        public void Update(PropertyModel model)
+        {
+            PropertyId = model.PropertyId;
+            AddressId = model.AddressId;
+            PropertyName = model.PropertyName;
+            SquareFeet = model.SquareFeet;
+            NumberOfBedrooms = model.NumberOfBedrooms;
+            NumberOfBathrooms = model.NumberOfBathrooms;
+            NumberOfVehicles = model.NumberOfVehicles;
+            HasOutdoorSpace = model.HasOutdoorSpace;
+        }
     }
 
 }

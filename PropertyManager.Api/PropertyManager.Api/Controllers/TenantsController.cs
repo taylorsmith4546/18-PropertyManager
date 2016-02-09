@@ -1,26 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using PropertyManager.Api.Domain;
+using AutoMapper;
 using PropertyManager.Api.Infrastructure;
+using PropertyManager.Api.Models;
+using PropertyManager.Api.Domain;
 
-namespace PropertyManager.Api.Controllers
+namespace _18_PropertyManager.Controllers
 {
     public class TenantsController : ApiController
     {
         private PropertyManagerDataContext db = new PropertyManagerDataContext();
 
         // GET: api/Tenants
-        public IQueryable<Tenant> GetTenants()
+        public IEnumerable<TenantModel> GetTenants()
         {
-            return db.Tenants;
+            return Mapper.Map<IEnumerable<TenantModel>>(db.Tenants);
         }
 
         // GET: api/Tenants/5
@@ -33,12 +33,28 @@ namespace PropertyManager.Api.Controllers
                 return NotFound();
             }
 
-            return Ok(tenant);
+            return Ok(Mapper.Map<TenantModel>(tenant));
+        }
+
+        //GET: api/tenants/5/leases
+        [Route("api/tenants/{TenantId}/leases")]
+        public IEnumerable<LeaseModel> GetLeasesForTenant(int TenantId)
+        {
+            var leases = db.Leases.Where(l => l.TenantId == TenantId);
+            return Mapper.Map<IEnumerable<LeaseModel>>(leases);
+        }
+
+        //GET: api/tenants/5/workorders
+        [Route("api/tenants/{TenantId}/workorders")]
+        public IEnumerable<WorkOrderModel> GetWorkOrdersForProperty(int TenantId)
+        {
+            var workorders = db.WorkOrders.Where(wo => wo.TenantId == TenantId);
+            return Mapper.Map<IEnumerable<WorkOrderModel>>(workorders);
         }
 
         // PUT: api/Tenants/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutTenant(int id, Tenant tenant)
+        public IHttpActionResult PutTenant(int id, TenantModel tenant)
         {
             if (!ModelState.IsValid)
             {
@@ -49,8 +65,11 @@ namespace PropertyManager.Api.Controllers
             {
                 return BadRequest();
             }
+            
+            var dbTenant = db.Tenants.Find(id);
 
-            db.Entry(tenant).State = EntityState.Modified;
+            dbTenant.Update(tenant);
+            db.Entry(dbTenant).State = EntityState.Modified;
 
             try
             {
@@ -73,14 +92,16 @@ namespace PropertyManager.Api.Controllers
 
         // POST: api/Tenants
         [ResponseType(typeof(Tenant))]
-        public IHttpActionResult PostTenant(Tenant tenant)
+        public IHttpActionResult PostTenant(TenantModel tenant)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Tenants.Add(tenant);
+            var dbTenant = new Tenant(tenant);
+
+            db.Tenants.Add(dbTenant);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = tenant.TenantId }, tenant);
@@ -99,7 +120,7 @@ namespace PropertyManager.Api.Controllers
             db.Tenants.Remove(tenant);
             db.SaveChanges();
 
-            return Ok(tenant);
+            return Ok(Mapper.Map<TenantModel>(tenant));
         }
 
         protected override void Dispose(bool disposing)

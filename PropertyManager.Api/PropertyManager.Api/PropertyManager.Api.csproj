@@ -121,6 +121,10 @@
     <Compile Include="Migrations\201602090441439_AddModels.Designer.cs">
       <DependentUpon>201602090441439_AddModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602091942115_Refactor Controllers.cs" />
+    <Compile Include="Migrations\201602091942115_Refactor Controllers.Designer.cs">
+      <DependentUpon>201602091942115_Refactor Controllers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddressModel.cs" />
     <Compile Include="Models\LeaseModel.cs" />
@@ -147,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602090441439_AddModels.resx">
       <DependentUpon>201602090441439_AddModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602091942115_Refactor Controllers.resx">
+      <DependentUpon>201602091942115_Refactor Controllers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

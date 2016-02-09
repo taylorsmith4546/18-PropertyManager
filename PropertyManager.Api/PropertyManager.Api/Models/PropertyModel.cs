@@ -13,7 +13,8 @@ namespace PropertyManager.Api.Models
         public int? SquareFeet { get; set; } //int? = int nullable = could have or not have a value
         public int? NumberOfBedrooms { get; set; }
         public float? NumberOfBathrooms { get; set; }
-        public int? NumberOfVehicle { get; set; }
+        public int? NumberOfVehicles { get; set; }
+        public bool HasOutdoorSpace { get; set; }
 
         public AddressModel Address { get; set; }
     }

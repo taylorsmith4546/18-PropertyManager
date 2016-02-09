@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
-using PropertyManager.Api.Domain;
+using AutoMapper;
 using PropertyManager.Api.Infrastructure;
+using PropertyManager.Api.Models;
+using PropertyManager.Api.Domain;
 
-namespace PropertyManager.Api.Controllers
+namespace _18_PropertyManager.Controllers
 {
     public class LeasesController : ApiController
     {
         private PropertyManagerDataContext db = new PropertyManagerDataContext();
 
         // GET: api/Leases
-        public IQueryable<Lease> GetLeases()
+        public IEnumerable<LeaseModel> GetLeases()
         {
-            return db.Leases;
+            return Mapper.Map<IEnumerable<LeaseModel>>(db.Leases);
         }
 
         // GET: api/Leases/5
@@ -33,12 +32,12 @@ namespace PropertyManager.Api.Controllers
                 return NotFound();
             }
 
-            return Ok(lease);
+            return Ok(Mapper.Map<LeaseModel>(lease));
         }
 
         // PUT: api/Leases/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutLease(int id, Lease lease)
+        public IHttpActionResult PutLease(int id, LeaseModel lease)
         {
             if (!ModelState.IsValid)
             {
@@ -50,7 +49,10 @@ namespace PropertyManager.Api.Controllers
                 return BadRequest();
             }
 
-            db.Entry(lease).State = EntityState.Modified;
+            var dbLease = db.Leases.Find(id);
+
+            dbLease.Update(lease);
+            db.Entry(dbLease).State = EntityState.Modified;
 
             try
             {
@@ -73,14 +75,16 @@ namespace PropertyManager.Api.Controllers
 
         // POST: api/Leases
         [ResponseType(typeof(Lease))]
-        public IHttpActionResult PostLease(Lease lease)
+        public IHttpActionResult PostLease(LeaseModel lease)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Leases.Add(lease);
+            var dbLease = new Lease(lease);
+
+            db.Leases.Add(dbLease);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = lease.LeaseId }, lease);
@@ -99,7 +103,7 @@ namespace PropertyManager.Api.Controllers
             db.Leases.Remove(lease);
             db.SaveChanges();
 
-            return Ok(lease);
+            return Ok(Mapper.Map<LeaseModel>(lease));
         }
 
         protected override void Dispose(bool disposing)
