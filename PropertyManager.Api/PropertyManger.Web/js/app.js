@@ -16,6 +16,6 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider) {
                       .state('lease.detail', { url: '/detail/:id', templateUrl: '/templates/lease/lease.detail.html', controller: 'LeaseDetailController' })
                   .state('workOrder', { url: '/workOrder', abstract: true, template: '<ui-view/>' })
                       .state('workOrder.grid', { url: '/grid', templateUrl: '/templates/workOrder/workOrder.grid.html', controller: 'WorkOrderGridController' })
-                      .state('workOrder.detail', { url: '/detail/:id', templateUrl: '/templates/workOrder/workOrder.detail.html', controller: 'workOrderDetailController' })
+                      .state('workOrder.detail', { url: '/detail/:id', templateUrl: '/templates/workOrder/workOrder.detail.html', controller: 'WorkOrderDetailController' })
     ;
 });

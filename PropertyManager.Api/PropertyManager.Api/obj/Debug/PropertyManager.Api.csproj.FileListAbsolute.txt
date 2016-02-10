@@ -55,3 +55,4 @@ C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\System
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\System.Web.Http.Cors.xml
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.Migrations.ChangesMade.resources
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.Migrations.Tenantleasechange.resources
+C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.csprojResolveAssemblyReference.cache
