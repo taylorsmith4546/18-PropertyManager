@@ -133,6 +133,14 @@
     <Compile Include="Migrations\201602091737574_test.Designer.cs">
       <DependentUpon>201602091737574_test.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201602092315514_ChangesMade.cs" />
+    <Compile Include="Migrations\201602092315514_ChangesMade.Designer.cs">
+      <DependentUpon>201602092315514_ChangesMade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602092351598_Tenantleasechange.cs" />
+    <Compile Include="Migrations\201602092351598_Tenantleasechange.Designer.cs">
+      <DependentUpon>201602092351598_Tenantleasechange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddressModel.cs" />
     <Compile Include="Models\LeaseModel.cs" />
@@ -162,6 +170,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201602091737574_test.resx">
       <DependentUpon>201602091737574_test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602092315514_ChangesMade.resx">
+      <DependentUpon>201602092315514_ChangesMade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602092351598_Tenantleasechange.resx">
+      <DependentUpon>201602092351598_Tenantleasechange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

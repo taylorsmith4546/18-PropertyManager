@@ -1,4 +1,3 @@
-C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.csprojResolveAssemblyReference.cache
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\roslyn\csc.exe
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
@@ -54,3 +53,5 @@ C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\System.Web.Cors.dll
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\System.Web.Http.Cors.dll
 C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\bin\System.Web.Http.Cors.xml
+C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.Migrations.ChangesMade.resources
+C:\Dev\GitHub\PropertyManager\PropertyManager.Api\PropertyManager.Api\obj\Debug\PropertyManager.Api.Migrations.Tenantleasechange.resources
