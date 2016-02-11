@@ -1,23 +1,23 @@
-﻿<table class="table table-striped table-responsive">
+﻿<table class="table table-responsive">
     <thead>
+    <thead class="thead-inverse">
         <tr>
-            <th>Property Name</th>
-            <th>Address 1</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Postcode</th>
+            <th><font color="white">Property Name</font></th>
+            <th><font color="white">Address 1</font></th>
+            <th><font color="white">City</font></th>
+            <th><font color="white">State</font></th>
+            <th><font color="white">Postcode</font></th>
             <th>
-
             </th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="property in properties">
-            <td>{{property.PropertyName}}</td>
-            <td>{{property.Address.Address1}}</td>
-            <td>{{property.Address.City}}</td>
-            <td>{{property.Address.State}}</td>
-            <td>{{property.Address.PostCode}}</td>
+            <td><font color="white">{{property.PropertyName}}</font></td>
+            <td><font color="white">{{property.Address.Address1}}</font></td>
+            <td><font color="white">{{property.Address.City}}</font></td>
+            <td><font color="white">{{property.Address.State}}</font></td>
+            <td><font color="white">{{property.Address.PostCode}}</font></td>
             <td>
                 <a class="btn btn-info" ng-href="#/property/detail/{{property.PropertyId}}">
                     Edit <i class="glyphicon glyphicon-edit"></i>

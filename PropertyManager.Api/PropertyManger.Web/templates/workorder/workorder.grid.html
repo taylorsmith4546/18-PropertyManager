@@ -1,9 +1,10 @@
-﻿<table class="table table-striped table-responsive">
+﻿<table class="table table-responsive">
     <thead>
+    <thead class="thead-inverse">
         <tr>
-            <th>Opened Date</th>
-            <th>Closed Date</th>
-            <th>Description</th>
+            <th><font color="white">Opened Date</font></th>
+            <th><font color="white">Closed Date</font></th>
+            <th><font color="white">Description</font></th>
             <th>
 
             </th>
@@ -11,9 +12,9 @@
     </thead>
     <tbody>
         <tr ng-repeat="workOrder in workOrders">
-            <td>{{workOrder.OpenedDate}}</td>
-            <td>{{workOrder.ClosedDate}}</td>
-            <td>{{workOrder.Description}}</td>
+            <td><font color="white">{{workOrder.OpenedDate}}</font></td>
+            <td><font color="white">{{workOrder.ClosedDate}}</font></td>
+            <td><font color="white">{{workOrder.Description}}</font></td>
             <td>
                 <a class="btn btn-info" ng-href="#/workOrder/detail/{{workOrder.WorkOrderId}}">
                     Edit <i class="glyphicon glyphicon-edit"></i>

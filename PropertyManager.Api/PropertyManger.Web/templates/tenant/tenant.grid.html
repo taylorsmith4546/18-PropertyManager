@@ -1,21 +1,21 @@
-﻿<table class="table table-striped table-responsive">
+﻿<table class="table table-responsive">
     <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Telephone</th>
-            <th>Email Address</th>
+    <thead class="thead-inverse">
+        <tr class="active">
+            <th><font color="white">First Name</font></th>
+            <th><font color="white">Last Name</font></th>
+            <th><font color="white">Telephone</font></th>
+            <th><font color="white">Email Address</font></th>
             <th>
-
             </th>
         </tr>
     </thead>
     <tbody>
         <tr ng-repeat="tenant in tenants">
-            <td>{{tenant.FirstName}}</td>
-            <td>{{tenant.LastName}}</td>
-            <td>{{tenant.Telephone}}</td>
-            <td>{{tenant.EmailAddress}}</td>
+            <td><font color="white">{{tenant.FirstName}}</font></td>
+            <td><font color="white">{{tenant.LastName}}</font></td>
+            <td><font color="white">{{tenant.Telephone}}</font></td>
+            <td><font color="white">{{tenant.EmailAddress}}</font></td>
             <td>
                 <a class="btn btn-info" ng-href="#/tenant/detail/{{tenant.TenantId}}">
                     Edit <i class="glyphicon glyphicon-edit"></i>

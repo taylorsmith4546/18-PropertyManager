@@ -1,44 +1,59 @@
-﻿<h1><i class="glyphicon glyphicon-home"></i> Property Manager  </h1>
+﻿<h1><font color="white"><p style="text-align:center;"><i class="glyphicon glyphicon-home"></p></i><p style="text-align:center;"> Property Manager</p></font></h1>
+
+<style type="text/css">
+    th {
+        text-align: center;
+    }
+    td {
+        text-align: center;
+    }
+</style>
+
 
 <div class="row">
-    <!-- column for overview -->
-    <div class="col-sm-4">
-        <!-- table for overview -->
-        <table class="table table-bordered table-condensed table-responsive">
-            <thead>
-                <tr>
-                    <th colspan="2">
-                        <i class="fa fa-tachometer"></i> Overview
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        Number of Properties
-                        <span class="pull-right">{{dashboard.PropertyCount}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Number of Tenants
-                        <span class="pull-right">{{dashboard.TenantCount}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Number of Leases
-                        <span class="pull-right">{{dashboard.LeaseCount}}</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Number of Work Orders
-                        <span class="pull-right">{{dashboard.WorkOrderCount}}</span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    
+    <div class="col-sm-12">
+
+        
+            <table class="table table-bordered active table-responsive">            
+                <thead>
+                <thead class="thead-inverse">
+                    <tr>
+                        <th colspan="2">
+                            <i class="fa fa-tachometer"></i><font color="white">
+                                Overview
+                            </font>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <font color="white">Properties</font>
+                            <span class="pull-right">{{dashboard.PropertyCount}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font color="white">Tenants</font>
+                            <span class="pull-right">{{dashboard.TenantCount}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font color="white">Leases</font>
+                            <span class="pull-right">{{dashboard.LeaseCount}}</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <font color="white">Work Orders</font>
+                            <span class="pull-right">{{dashboard.WorkOrderCount}}</span>
+                        </td>
+                    </tr>                  
+                </tbody>
+           </table>      
     </div>
 </div>
+
 
