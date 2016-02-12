@@ -1,7 +1,7 @@
 ﻿<table class="table table-responsive">
     <thead>
     <thead class="thead-inverse">
-        <tr class="active">
+        <tr>
             <th><font color="white">First Name</font></th>
             <th><font color="white">Last Name</font></th>
             <th><font color="white">Telephone</font></th>
@@ -20,7 +20,7 @@
                 <a class="btn btn-info" ng-href="#/tenant/detail/{{tenant.TenantId}}">
                     Edit <i class="glyphicon glyphicon-edit"></i>
                 </a>
-                <a class="btn btn-danger">
+                <a class="btn btn-danger" ng-click="deleteTenant(tenant)">
                     Delete <i class="glyphicon glyphicon-erase"></i>
                 </a>
             </td>

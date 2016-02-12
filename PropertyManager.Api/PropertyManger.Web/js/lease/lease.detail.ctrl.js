@@ -4,6 +4,7 @@
     $scope.saveLease = function () {
         $scope.lease.$update(function () {
             alert('save successful');
+            activate();
         });
     };
 });

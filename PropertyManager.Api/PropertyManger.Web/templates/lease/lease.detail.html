@@ -1,17 +1,15 @@
-﻿<h4><font color="white">{{lease.LeaseId ? 'Edit' : 'Add'}} Lease</font></h4>
+﻿<h4><f<h4>{{lease.LeaseId ? 'Edit' : 'Add'}} Lease</h4>
 <div class="well">
     
-    <form name="leaseForm">
+    <form name="leaseForm" novalidate>
         <div class="row">
             <div class="col-sm-6">
-
-
                 <div class="form-group"
                      ng-class="{'has-error': leaseForm.leaseProperty.$invalid && leaseForm.$submitted }">
                     <label class="control-label" for="leaseProperty">Property Name</label>
-                    <select class="form-control" id="leaseProperty" name="leaseProperty"
+                    <input type="text" class="form-control" id="leaseProperty" name="leaseProperty"
                             ng-options="property.PropertyId as property.Name for property in properties"
-                            ng-model="lease.PropertyId" required></select>
+                            ng-model="lease.PropertyId" required>
                     <span class="help-block"
                           ng-show="leaseForm.leaseProperty.$invalid && leaseForm.$submitted">
                         A property must be selected for the lease
@@ -23,9 +21,9 @@
                 <div class="form-group"
                      ng-class="{'has-error': leaseForm.leaseTenant.$invalid && leaseForm.$submitted }">
                     <label class="control-label" for="leaseTenant">Tenant Name</label>
-                    <select class="form-control" id="leaseTenant" name="leaseTenant"
+                    <input type="text" class="form-control" id="leaseTenant" name="leaseTenant"
                             ng-options="tenant.TenantId as tenant.FullName for tenant in tenants"
-                            ng-model="lease.TenantId" required></select>
+                            ng-model="lease.TenantId" required>
                     <span class="help-block"
                           ng-show="leaseForm.leaseTenant.$invalid && leaseForm.$submitted">
                         A tenant must be selected for the lease

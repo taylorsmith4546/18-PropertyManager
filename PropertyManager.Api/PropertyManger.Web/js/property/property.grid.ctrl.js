@@ -3,6 +3,12 @@
     function activate() {
         $scope.properties = PropertyResource.query();
     }
+    $scope.deleteProperty = function (property) {
+        property.$remove(function () {
+            alert('delete successful');
+            activate();
+        });
+    };
 
     activate();
 

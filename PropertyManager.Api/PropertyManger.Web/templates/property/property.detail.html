@@ -7,7 +7,7 @@
              ng-class="{'has-error': propertyForm.propertyName.$invalid && propertyForm.$submitted }">
             <label class="control-label" for="propertyName">Property Name</label>
             <input type="text" class="form-control" id="propertyName" name="propertyName"
-                   placeholder="Property Name" ng-model="property.Name" required autofocus>
+                   placeholder="Property Name" ng-model="property.PropertyName" required autofocus>
             <span class="help-block" ng-show="propertyForm.propertyName.$invalid && propertyForm.$submitted">
                 This is a required field
             </span>
@@ -17,7 +17,7 @@
              ng-class="{'has-error': propertyForm.propertyAddress1.$invalid && propertyForm.$submitted }">
             <label class="control-label" for="propertyAddress1">Address (1)</label>
             <input type="text" class="form-control" id="propertyAddress1" name="propertyAddress1"
-                   placeholder="Address (1)" ng-model="property.Address1" required>
+                   placeholder="Address (1)" ng-model="property.Address.Address1" required>
             <span class="help-block" ng-show="propertyForm.propertyAddress1.$invalid && propertyForm.$submitted">
                 This is a required field
             </span>
@@ -26,7 +26,7 @@
         <div class="form-group">
             <label class="control-label" for="propertyAddress2">Address (2)</label>
             <input type="text" class="form-control" id="propertyAddress2"
-                   placeholder="Address (2)" ng-model="property.Address2">
+                   placeholder="Address (2)" ng-model="property.Address.Address2">
         </div>
 
         <div class="row">
@@ -35,7 +35,7 @@
                      ng-class="{'has-error': propertyForm.propertyCity.$invalid && propertyForm.$submitted }">
                     <label class="control-label" for="propertyCity">City</label>
                     <input type="text" class="form-control" id="propertyCity" name="propertyCity"
-                           placeholder="City" ng-model="property.City" required>
+                           placeholder="City" ng-model="property.Address.City" required>
                     <span class="help-block"
                           ng-show="propertyForm.propertyCity.$invalid && propertyForm.$submitted">
                         This is a required field
@@ -48,7 +48,7 @@
                      ng-class="{'has-error': propertyForm.propertyState.$invalid && propertyForm.$submitted }">
                     <label class="control-label" for="propertyState">State</label>
                     <input type="text" class="form-control" id="propertyState" name="propertyState"
-                           placeholder="State" ng-model="property.State" required>
+                           placeholder="State" ng-model="property.Address.State" required>
                     <span class="help-block"
                           ng-show="propertyForm.propertyState.$invalid && propertyForm.$submitted">
                         This is a required field
@@ -60,7 +60,7 @@
                 <div class="form-group">
                     <label class="control-label" for="propertyZipcode">Zipcode</label>
                     <input type="text" class="form-control" id="propertyZipcode"
-                           placeholder="Zipcode" ng-model="property.Zipcode">
+                           placeholder="Zipcode" ng-model="property.Address.PostCode">
                 </div>
             </div>
         </div>
