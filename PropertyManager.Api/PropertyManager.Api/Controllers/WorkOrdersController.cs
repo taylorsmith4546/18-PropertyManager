@@ -15,6 +15,7 @@ using PropertyManager.Api.Models;
 
 namespace PropertyManager.Api.Controllers
 {
+    [Authorize]
     public class WorkOrdersController : ApiController
     {
         private PropertyManagerDataContext db = new PropertyManagerDataContext();

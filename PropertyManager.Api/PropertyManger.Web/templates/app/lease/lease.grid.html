@@ -1,0 +1,30 @@
+﻿<table class="table table-responsive">
+    <thead>
+    <thead class="thead-inverse">
+        <tr>
+            <th><font color="white">Start Date</font></th>
+            <th><font color="white">End Date</font></th>
+            <th><font color="white">Rent Amount</font></th>
+            <th><font color="white">Rent Frequency</font></th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="lease in leases">
+            <td><font color="white">{{lease.StartDate}}</font></td>
+            <td><font color="white">{{lease.EndDate}}</font></td>
+            <td><font color="white">{{lease.RentAmount}}</font></td>
+            <td><font color="white">{{lease.RentFrequency}}</font></td>
+            <td>
+                <a class="btn btn-info" ng-href="#/app/lease/detail/{{lease.LeaseId}}">
+                    Edit <i class="glyphicon glyphicon-edit"></i>
+                    
+                </a>
+                <a class="btn btn-danger" ng-click="deleteLease(lease)">
+                    Delete <i class="glyphicon glyphicon-erase"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,31 @@
+﻿<table class="table table-responsive">
+    <thead>
+    <thead class="thead-inverse">
+        <tr>
+            <th><font color="white">Property Name</font></th>
+            <th><font color="white">Address 1</font></th>
+            <th><font color="white">City</font></th>
+            <th><font color="white">State</font></th>
+            <th><font color="white">Postcode</font></th>
+            <th>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="property in properties">
+            <td><font color="white">{{property.PropertyName}}</font></td>
+            <td><font color="white">{{property.Address.Address1}}</font></td>
+            <td><font color="white">{{property.Address.City}}</font></td>
+            <td><font color="white">{{property.Address.State}}</font></td>
+            <td><font color="white">{{property.Address.PostCode}}</font></td>
+            <td>
+                <a class="btn btn-info" ng-href="#/app/property/detail/{{property.PropertyId}}">
+                    Edit <i class="glyphicon glyphicon-edit"></i>
+                </a>
+                <a class="btn btn-danger" ng-click="deleteProperty(property)">
+                    Delete <i class="glyphicon glyphicon-erase"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

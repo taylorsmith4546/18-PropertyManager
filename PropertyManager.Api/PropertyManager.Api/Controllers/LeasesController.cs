@@ -15,11 +15,13 @@ using AutoMapper;
 
 namespace PropertyManager.Api.Controllers
 {
+    [Authorize]
     public class LeasesController : ApiController
     {
         private PropertyManagerDataContext db = new PropertyManagerDataContext();
 
         // GET: api/Leases
+        [Authorize]
         public IEnumerable<LeaseModel> GetLeases()
         {
             return Mapper.Map<IEnumerable<LeaseModel>>(db.Leases);
