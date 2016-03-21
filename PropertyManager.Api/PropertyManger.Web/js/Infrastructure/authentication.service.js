@@ -11,7 +11,7 @@
     }
 
     function register(registration) {
-        return $http.post(apiUrl + '/accounts/register', registration).then(
+        return $http.post(apiUrl + 'accounts/register', registration).then(
             function (response) {
                 return response;
             }
@@ -23,7 +23,7 @@
 
         var deferred = $q.defer();
 
-        $http.post(apiUrl + '/token', data, {
+        $http.post(apiUrl + 'token', data, {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             }

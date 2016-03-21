@@ -1,12 +1,12 @@
 ﻿angular.module('app', ['ngResource', 'ui.router', 'LocalStorageModule']);
 
-angular.module('app').value('apiUrl', 'http://localhost:51228/api');
+angular.module('app').value('apiUrl', 'https://taylorpropertiesapi.azurewebsites.net/api/');
 
 angular.module('app').config(function ($stateProvider, $urlRouterProvider, $httpProvider) {
     $httpProvider.interceptors.push('AuthenticationInterceptor');
 
     $urlRouterProvider.otherwise('home');
-
+     
     $stateProvider
                        .state('home', { url: '/home', templateUrl: '/templates/home/home.html', controller: 'HomeController' })
                         .state('register', { url: '/register', templateUrl: 'templates/register/register.html', controller: 'RegisterController' })
@@ -21,9 +21,6 @@ angular.module('app').config(function ($stateProvider, $urlRouterProvider, $http
                       .state('app.lease', { url: '/lease', abstract: true, template: '<ui-view/>' })
                           .state('app.lease.grid', { url: '/grid', templateUrl: '/templates/app/lease/lease.grid.html', controller: 'LeaseGridController' })
                           .state('app.lease.detail', { url: '/detail/:id', templateUrl: '/templates/app/lease/lease.detail.html', controller: 'LeaseDetailController' })
-                      .state('app.workOrder', { url: '/workOrder', abstract: true, template: '<ui-view/>' })
-                          .state('app.workOrder.grid', { url: '/grid', templateUrl: '/templates/app/workOrder/workOrder.grid.html', controller: 'WorkOrderGridController' })
-                          .state('app.workOrder.detail', { url: '/detail/:id', templateUrl: '/templates/app/workOrder/workOrder.detail.html', controller: 'WorkOrderDetailController' })
     ;
 });
 

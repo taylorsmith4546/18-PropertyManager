@@ -1,36 +1,36 @@
-﻿<h4><font color="white">{{lease.LeaseId ? 'Edit' : 'Add'}} Lease </font></h4>
+﻿<h4>{{lease.LeaseId ? 'Edit' : 'Add'}} Lease</h4>
 <div class="well">
-    
+    <!-- Lease form (block any default browser validation) -->
     <form name="leaseForm" novalidate>
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group"
                      ng-class="{'has-error': leaseForm.leaseProperty.$invalid && leaseForm.$submitted }">
                     <label class="control-label" for="leaseProperty">Property Name</label>
-                    <input type="text" class="form-control" id="leaseProperty" name="leaseProperty"
+                    <select class="form-control" id="leaseProperty" name="leaseProperty"
                             ng-options="property.PropertyId as property.Name for property in properties"
-                            ng-model="lease.PropertyId" required>
+                            ng-model="lease.PropertyId" required></select>
                     <span class="help-block"
                           ng-show="leaseForm.leaseProperty.$invalid && leaseForm.$submitted">
                         A property must be selected for the lease
                     </span>
-                </div>
-            </div>
+                </div><!-- end form group -->
+            </div><!-- end column -->
 
             <div class="col-sm-6">
                 <div class="form-group"
                      ng-class="{'has-error': leaseForm.leaseTenant.$invalid && leaseForm.$submitted }">
                     <label class="control-label" for="leaseTenant">Tenant Name</label>
-                    <input type="text" class="form-control" id="leaseTenant" name="leaseTenant"
+                    <select class="form-control" id="leaseTenant" name="leaseTenant"
                             ng-options="tenant.TenantId as tenant.FullName for tenant in tenants"
-                            ng-model="lease.TenantId" required>
+                            ng-model="lease.TenantId" required></select>
                     <span class="help-block"
                           ng-show="leaseForm.leaseTenant.$invalid && leaseForm.$submitted">
                         A tenant must be selected for the lease
                     </span>
-                </div>
-            </div>
-        </div>
+                </div><!-- end form group -->
+            </div><!-- end column -->
+        </div><!-- end row -->
 
         <div class="row">
             <div class="col-md-6">
@@ -43,16 +43,16 @@
                           ng-show="leaseForm.leaseStartDate.$invalid && leaseForm.$submitted">
                         This is a required field
                     </span>
-                </div>
-            </div>
+                </div><!-- end form group -->
+            </div><!-- end column -->
             <div class="col-md-6">
                 <div class="form-group">
                     <label class="control-label" for="leaseEndDate">Lease End Date</label>
                     <input type="text" class="form-control" id="leaseEndDate"
                            placeholder="Lease End Date" ng-model="lease.EndDate">
-                </div>
-            </div>
-        </div>
+                </div><!-- end form group -->
+            </div><!-- end column -->
+        </div><!-- end row -->
 
         <div class="row">
             <div class="col-md-6">
@@ -70,8 +70,8 @@
                           ng-show="leaseForm.leaseType.$invalid && leaseForm.$submitted">
                         A rental period must be selected for the lease
                     </span>
-                </div>
-            </div>
+                </div><!-- end form group -->
+            </div><!-- end column -->
             <div class="col-md-6">
                 <div class="form-group"
                      ng-class="{'has-error': leaseForm.leaseRent.$invalid && leaseForm.$submitted }">
@@ -84,23 +84,23 @@
                               ng-show="leaseForm.leaseRent.$invalid && leaseForm.$submitted">
                             This is a required field
                         </span>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </div><!-- End input-group-->
+                </div><!-- end form group -->
+            </div><!-- end column -->
+        </div><!-- end row -->
 
         <div class="row">
             <div class="col-sm-8">
                 <button class="btn btn-success btn-sm" type="submit" ng-click="saveLease()">
                     <i class="fa fa-save"></i> Save
                 </button>
-            </div>
+            </div><!-- end column -->
             <div class="col-sm-4">
                 <button class="btn btn-danger btn-sm pull-right" ui-sref="app.leases.list">
                     <i class="fa fa-remove fa-fw"></i> Cancel
                 </button>
-            </div>
-        </div>
+            </div><!-- end column -->
+        </div><!-- end row -->
         <!--pre>{{lease | json}}</pre-->
-    </form>
-</div>
+    </form><!-- end form -->
+</div><!-- end well -->

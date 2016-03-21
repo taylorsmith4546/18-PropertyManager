@@ -203,6 +203,21 @@ main {
 		padding-right: 0;
 	}
 
+    /* Slide 5 */
+#slide-5 .bcg {
+    background-image:url('../images/bcg_slide-5.jpg');
+}
+#slide-5 .hsContent {
+	margin-left: -450px;
+    position: fixed;
+    top: 250px;
+}
+	#slide-5 h2 {
+		background: none;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 /* ==========================================================================
    Helper classes
    ========================================================================== */

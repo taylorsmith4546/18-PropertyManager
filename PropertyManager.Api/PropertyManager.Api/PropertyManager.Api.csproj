@@ -146,7 +146,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
@@ -155,7 +157,6 @@
     <Compile Include="Controllers\LeasesController.cs" />
     <Compile Include="Controllers\PropertiesController.cs" />
     <Compile Include="Controllers\TenantsController.cs" />
-    <Compile Include="Controllers\WorkOrdersController.cs" />
     <Compile Include="Domain\Address.cs" />
     <Compile Include="Domain\Lease.cs" />
     <Compile Include="Domain\Property.cs" />
@@ -165,9 +166,9 @@
     <Compile Include="Infrastructure\AuthorizationRepository.cs" />
     <Compile Include="Infrastructure\PropertyManagerAuthorizationServerProvider.cs" />
     <Compile Include="Infrastructure\PropertyManagerDataContext.cs" />
-    <Compile Include="Migrations\201602170043532_initialcreate.cs" />
-    <Compile Include="Migrations\201602170043532_initialcreate.Designer.cs">
-      <DependentUpon>201602170043532_initialcreate.cs</DependentUpon>
+    <Compile Include="Migrations\201603191514406_InitialCreate.cs" />
+    <Compile Include="Migrations\201603191514406_InitialCreate.Designer.cs">
+      <DependentUpon>201603191514406_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AddressModel.cs" />
@@ -181,6 +182,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\taylorpropertiesapi - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\taylorpropertiesapi - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -192,8 +195,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602170043532_initialcreate.resx">
-      <DependentUpon>201602170043532_initialcreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201603191514406_InitialCreate.resx">
+      <DependentUpon>201603191514406_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

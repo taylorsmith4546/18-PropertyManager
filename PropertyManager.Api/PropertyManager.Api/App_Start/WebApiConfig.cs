@@ -38,7 +38,6 @@ namespace PropertyManager.Api
             Mapper.CreateMap<Lease, LeaseModel>();
             Mapper.CreateMap<Property, PropertyModel>();
             Mapper.CreateMap<Tenant, TenantModel>();
-            Mapper.CreateMap<WorkOrder, WorkOrderModel>();
         }
     }
 }
